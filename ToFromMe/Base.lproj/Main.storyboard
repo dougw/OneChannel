@@ -30,7 +30,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0F-cJ-apg">
-                                        <rect key="frame" x="74.5" y="190" width="225" height="30"/>
+                                        <rect key="frame" x="74" y="190" width="225" height="30"/>
                                         <animations/>
                                         <state key="normal" title="Beta Problems? Praise? @dougw"/>
                                         <connections>
@@ -243,10 +243,10 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ToFromMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="ENv-Om-9qz" userLabel="Channel Label">
-                                        <rect key="frame" x="50" y="34" width="314" height="18"/>
+                                        <rect key="frame" x="50" y="33" width="314" height="20.5"/>
                                         <animations/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
