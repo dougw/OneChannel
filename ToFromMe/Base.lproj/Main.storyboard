@@ -40,7 +40,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guX-Ff-QOx" userLabel="Add View">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="170"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ToFromMe posts messages to a Slack channel with one tap. Add To Slack and we'll do the rest." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k0O-zc-jjo" userLabel="Instruction Text View">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="ToFromMe posts messages to a Slack channel with one tap. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k0O-zc-jjo" userLabel="Instruction Text View">
                                                 <rect key="frame" x="20" y="20" width="334" height="75"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
