@@ -245,7 +245,7 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     func configureSettingsView() {
         if Settings.slackIsConfigured {
-            headerChannelLabel.text = "#\(Settings.slackChannel!)"
+            headerChannelLabel.text = "\(Settings.slackChannel!)"
             configuredTextView.text = "You are posting to #\(Settings.slackChannel!) on team \(Settings.slackTeamName!) on Slack."
             configuredSettingsView.hidden = false
             UIView.animateWithDuration(0.35,
