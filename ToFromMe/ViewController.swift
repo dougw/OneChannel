@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         case MissingParameter = 1
         case NoResponse = 2
         case HTTPError = 3
-        case JSONError = 4
+        case MissingText = 4
         case OauthError = 5
         
         var message: String {
@@ -31,15 +31,15 @@ class ViewController: UIViewController, UITextViewDelegate {
             case .InvalidToken:
                 return "You must Add to Slack in Settings to send."
             case .MissingParameter:
-                return "You are missing something!"
+                return "Hrm, something's amiss. We suggest you reconnect your Slack channel in Settings."
             case .NoResponse:
-                return "Hrm, that's strange. We didn't hear back from Slack. Check your network connection."
+                return "We didn't hear back from Slack. Oh no, is your Internet down?"
             case .HTTPError:
-                return "There was an http error."
-            case .JSONError:
-                return "There was a problem making the JSON string."
+                return "There was an unexpected Internet HTTP error."
+            case .MissingText:
+                return "If a tree falls in the woods and no one is around, does it make a sound? And if you don't give us a message to send, can we really send it?"
             case .OauthError:
-                return "We're haveing trouble getting permission to post for you."
+                return "We're didn't get permission post on your behalf."
                 
             }
         }
@@ -88,6 +88,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var headerChannelLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // Settings
     @IBOutlet weak var settingsView: UIView!
     // Add View
@@ -272,6 +273,12 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    @IBAction func feedbackButtonPressed(sender: UIButton) {
+        if !UIApplication.sharedApplication().openURL(NSURL(string: "twitter://user?screen_name=dougw")!) {
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.twitter.com/dougw")!)
+        }
+    }
+    
     // MARK: TextViewDelegate
     
     func textViewDidChange(textView: UITextView) {
@@ -282,7 +289,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func sendViewTapped(sender: UIGestureRecognizer) {
         guard Settings.slackIsConfigured else {
-            Utils.displayAlert(self, title: "Step 1. Add ToFromMe to Slack.", message: "(We'll help you do that)\n\nStep 2. Profit.")
+            // Utils.displayAlert(self, title: "Step 1. Add to Slack to connect a channel", message: "(We'll help you do that)\n\nStep 2. Profit.")
             self.wasPosting = true
             self.mode = .Settings
             return
@@ -311,26 +318,46 @@ class ViewController: UIViewController, UITextViewDelegate {
         })
     }
     
-    func messageURL(text: String) -> NSURL {
-        return NSURL(string: "\(self.SlackPostMessageURL)?token=\(Settings.slackAccessToken!)&channel=\(Settings.slackChannel!)&text=\(text)")!
+    func messageURL(text: String) -> NSURL? {
+        if text.isEmpty {
+            return NSURL?()
+        }
+        guard let channel = Settings.slackChannel else {
+            return NSURL?()
+        }
+        guard let token = Settings.slackAccessToken else {
+            return NSURL?()
+        }
+        let urlString = "\(self.SlackPostMessageURL)?token=\(token)&channel=\(channel)&text=\(text)"
+        print(urlString)
+        return NSURL(string: "\(urlString)")
     }
     
     func postMessage(text: String, callback: ((success: Bool, error: NSError?)->())) {
+        self.activityIndicator.startAnimating()
         guard let _ = Settings.slackAccessToken else {
             callback(success: false, error: Error.InvalidToken.error)
             return
         }
+        if text.isEmpty {
+            callback(success: false, error: Error.MissingText.error)
+        }
+        guard let url = messageURL(text) else {
+            callback(success: false, error: Error.MissingParameter.error)
+            return
+        }
         
         // create the request
-        let request = NSMutableURLRequest(URL: self.messageURL(text))
+        let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "GET"
         
         // send the request
         let task = session.dataTaskWithRequest(request) { data, response, error in
             dispatch_async(dispatch_get_main_queue(), {
+                self.activityIndicator.stopAnimating()
                 // look at the response
                 if let httpResponse = response as? NSHTTPURLResponse {
-                    //print(httpResponse)
+                    print(httpResponse)
                     if httpResponse.statusCode == 200 {
                         callback(success: true, error: nil)
                     } else {
@@ -350,6 +377,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     // MARK: - OAuth
     
     func handleAddToSlack(sending: Bool = false) {
+        self.activityIndicator.startAnimating()
+        addToSlackButton.enabled = false
         let oauthswift = OAuth2Swift(
             consumerKey:    SlackToken,
             consumerSecret: SlackSecret,
@@ -364,6 +393,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         let state = generateStateWithLength(32) as String
         oauthswift.authorizeWithCallbackURL( NSURL(string: SlackRedirectURI)!, scope: SlackScope, state: state, success: {
             credential, response, parameters in
+                self.activityIndicator.stopAnimating()
                 Settings.slackAccessToken = credential.oauth_token
                 Settings.slackChannel = parameters["incoming_webhook"]!["channel"] as? String
                 Settings.slackTeamName = parameters["team_name"] as? String
@@ -373,14 +403,13 @@ class ViewController: UIViewController, UITextViewDelegate {
                 }
                 // .Main resets wasPosting
                 self.mode = .Main
+                self.addToSlackButton.enabled = true
             }, failure: { (error: NSError) in
-                self.handleOauthFailure(error)
+                self.activityIndicator.stopAnimating()
+                self.addToSlackButton.enabled = true
+                Utils.displayAlert(self, title: "We weren't able to Add ToFromMe to Slack :(")
+                print(error)
             }
         )
-    }
-    
-    func handleOauthFailure(error: NSError) {
-        Utils.displayAlert(self, title: "We weren't able to Add ToFromMe to Slack :(")
-        print(error)
     }
 }

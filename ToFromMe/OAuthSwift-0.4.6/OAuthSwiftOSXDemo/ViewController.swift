@@ -283,6 +283,7 @@ class ViewController: NSViewController , NSTableViewDelegate, NSTableViewDataSou
                 }, failure: {(error:NSError!) -> Void in
                     print(error)
             })
+            @IBOutlet weak var feedbackButtonPressed: UIButton!
             }, failure: {(error:NSError!) -> Void in
                 print(error.localizedDescription)
         })

@@ -88,6 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func doOAuthGithub(){
+        @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
         let oauthswift = OAuth2Swift(
             consumerKey:    Github["consumerKey"]!,
             consumerSecret: Github["consumerSecret"]!,
@@ -273,6 +274,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         )
         oauthswift.authorize_url_handler = WebViewController()
         oauthswift.authorizeWithCallbackURL( NSURL(string: "oauth-swift://oauth-callback/dropbox")!, scope: "", state: "", success: {
+            @IBAction func feedbackButtonPressed(sender: AnyObject) {
+            }
             credential, response, parameters in
             self.showAlertView("Dropbox", message: "oauth_token:\(credential.oauth_token)")
             // Get Dropbox Account Info
