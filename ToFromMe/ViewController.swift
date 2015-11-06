@@ -16,20 +16,22 @@ class ViewController: UIViewController, UITextViewDelegate {
         case Token = "token"
         case Username = "username"
         case Icon_Emoji = "icon_emoji"
+        case Channel = "channel"
     }
     
     enum Error: Int {
-        case InvalidToken = 0
+        case ConfigureSlack = 0
         case MissingParameter = 1
         case NoResponse = 2
         case HTTPError = 3
         case MissingText = 4
         case OauthError = 5
+        case JsonError = 6
         
         var message: String {
             switch self {
-            case .InvalidToken:
-                return "You must Add to Slack in Settings to send."
+            case .ConfigureSlack:
+                return "Add to Slack in Settings to send."
             case .MissingParameter:
                 return "Hrm, something's amiss. We suggest you reconnect your Slack channel in Settings."
             case .NoResponse:
@@ -40,6 +42,8 @@ class ViewController: UIViewController, UITextViewDelegate {
                 return "If a tree falls in the woods and no one is around, does it make a sound? And if you don't give us a message to send, can we really send it?"
             case .OauthError:
                 return "We're didn't get permission post on your behalf."
+            case .JsonError:
+                return "We're having a hard time sending that. Try changing your text. We suggest you remove any abnormal characters."
                 
             }
         }
@@ -60,6 +64,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     // MARK: - Constants
     let SlackPostMessageURL:String = "https://slack.com/api/chat.postMessage"
     let DefaultHeaderChannelLabelText = "ToFromMe"
+    let DefaultIconEmoji = ":facepunch:"
     let ANIMATION_DURATION:Double = 0.35
     let SPRING_DAMPENING:CGFloat = 0.75
     
@@ -125,6 +130,14 @@ class ViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    
+    var channelDisplayString: String {
+        guard let channel = Settings.slackChannel else {
+            return "ToFromMe"
+        }
+        return channel
+    }
+    
     
     var mainViewCenterYOffset: CGFloat {
         // we move the main view down respective to the size of the header
@@ -245,8 +258,8 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     func configureSettingsView() {
         if Settings.slackIsConfigured {
-            headerChannelLabel.text = "\(Settings.slackChannel!)"
-            configuredTextView.text = "You are posting to #\(Settings.slackChannel!) on team \(Settings.slackTeamName!) on Slack."
+            headerChannelLabel.text = "\(channelDisplayString)"
+            configuredTextView.text = "You are posting to \(channelDisplayString) on team \(Settings.slackTeamName!) on Slack."
             configuredSettingsView.hidden = false
             UIView.animateWithDuration(0.35,
                 animations: {
@@ -278,7 +291,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             UIApplication.sharedApplication().openURL(NSURL(string: "http://www.twitter.com/dougw")!)
         }
     }
-    
+
     // MARK: TextViewDelegate
     
     func textViewDidChange(textView: UITextView) {
@@ -318,38 +331,46 @@ class ViewController: UIViewController, UITextViewDelegate {
         })
     }
     
-    func messageURL(text: String) -> NSURL? {
+    private func createPayload(text: String) -> [String:String]? {
         if text.isEmpty {
-            return NSURL?()
+            return [String:String]?()
         }
-        guard let channel = Settings.slackChannel else {
-            return NSURL?()
+        if !Settings.slackIsConfigured {
+            return [String:String]?()
         }
-        guard let token = Settings.slackAccessToken else {
-            return NSURL?()
-        }
-        let urlString = "\(self.SlackPostMessageURL)?token=\(token)&channel=\(channel)&text=\(text)"
-        print(urlString)
-        return NSURL(string: "\(urlString)")
+        var payload = [String:String]()
+        payload[SlackPayloadKey.Text.rawValue] = text
+        payload[SlackPayloadKey.Token.rawValue] = Settings.slackAccessToken!
+        payload[SlackPayloadKey.Icon_Emoji.rawValue] = DefaultIconEmoji
+        payload[SlackPayloadKey.Channel.rawValue] = Settings.slackChannel!
+        return payload
     }
     
     func postMessage(text: String, callback: ((success: Bool, error: NSError?)->())) {
         self.activityIndicator.startAnimating()
-        guard let _ = Settings.slackAccessToken else {
-            callback(success: false, error: Error.InvalidToken.error)
+        guard Settings.slackIsConfigured else {
+            callback(success: false, error: Error.ConfigureSlack.error)
             return
         }
         if text.isEmpty {
             callback(success: false, error: Error.MissingText.error)
         }
-        guard let url = messageURL(text) else {
+        guard let payload = createPayload(text) else {
             callback(success: false, error: Error.MissingParameter.error)
             return
         }
         
         // create the request
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "GET"
+        let request = NSMutableURLRequest(URL: NSURL(string: Settings.slackWebhookURL!)!)
+        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        do {
+            let json = try NSJSONSerialization.dataWithJSONObject(payload, options: NSJSONWritingOptions())
+            request.HTTPBody = json
+        } catch {
+            callback(success: false, error: Error.JsonError.error)
+            return
+        }
+        request.HTTPMethod = "POST"
         
         // send the request
         let task = session.dataTaskWithRequest(request) { data, response, error in
@@ -360,14 +381,17 @@ class ViewController: UIViewController, UITextViewDelegate {
                     print(httpResponse)
                     if httpResponse.statusCode == 200 {
                         callback(success: true, error: nil)
+                        return
                     } else {
                         print(httpResponse.statusCode)
                         print(error)
                         callback(success: false, error: Error.HTTPError.error("There was one of those problems the Internet has sometimes with error code \(httpResponse.statusCode)"))
+                        return
                     }
                 } else {
                     print(error)
                     callback(success: false, error: Error.NoResponse.error)
+                    return
                 }
             })
         }
@@ -396,6 +420,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 self.activityIndicator.stopAnimating()
                 Settings.slackAccessToken = credential.oauth_token
                 Settings.slackChannel = parameters["incoming_webhook"]!["channel"] as? String
+                Settings.slackWebhookURL = parameters["incoming_webhook"]!["url"] as? String
                 Settings.slackTeamName = parameters["team_name"] as? String
                 self.configureSettingsView()
                 if self.wasPosting {
@@ -406,6 +431,7 @@ class ViewController: UIViewController, UITextViewDelegate {
                 self.addToSlackButton.enabled = true
             }, failure: { (error: NSError) in
                 self.activityIndicator.stopAnimating()
+                Settings.resetSettings()
                 self.addToSlackButton.enabled = true
                 Utils.displayAlert(self, title: "We weren't able to Add ToFromMe to Slack :(")
                 print(error)

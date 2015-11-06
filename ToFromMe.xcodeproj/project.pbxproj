@@ -138,7 +138,6 @@
 				F02AC6251BEB2BB700317436 /* AppDelegate.swift */,
 				F02AC62A1BEB2BB700317436 /* ViewController.swift */,
 				F02AC6461BEB497B00317436 /* OauthViewController.swift */,
-				F02F37661BEC23E60087F7F5 /* Crashlytics.framework */,
 				F02AC6271BEB2BB700317436 /* Settings.swift */,
 				F02AC6281BEB2BB700317436 /* UIColor+ToFromMe.swift */,
 				F02AC6291BEB2BB700317436 /* Utils.swift */,
@@ -152,6 +151,7 @@
 		F02F37651BEC1E1D0087F7F5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				F02F37661BEC23E60087F7F5 /* Crashlytics.framework */,
 				F02F37631BEC1E0B0087F7F5 /* Fabric.framework */,
 				F04E904D1BEB57E10095CC03 /* OAuthSwift.xcodeproj */,
 			);

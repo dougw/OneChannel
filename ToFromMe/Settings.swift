@@ -25,6 +25,7 @@ class Settings {
         case SlackAccessToken = "slack_access_token"
         case SlackChannel = "slack_channel"
         case SlackTeamName = "slack_team_name"
+        case SlackWebhookURL = "slack_webhook_url"
     }
     
     class var slackAccessToken: String? {
@@ -63,14 +64,28 @@ class Settings {
         }
     }
     
+    
+    class var slackWebhookURL: String? {
+        get {
+        return Settings.getString(.SlackWebhookURL)
+        } set {
+            if newValue == nil {
+                Settings.deleteString(.SlackWebhookURL)
+            } else {
+                Settings.setString(.SlackWebhookURL, value: newValue!)
+            }
+        }
+    }
+    
     class var slackIsConfigured: Bool {
-        return slackAccessToken != nil && slackChannel != nil && slackTeamName != nil
+        return slackAccessToken != nil && slackChannel != nil && slackTeamName != nil && slackWebhookURL != nil
     }
     
     class func resetSlackSettings() {
         self.slackAccessToken = nil
         self.slackChannel = nil
         self.slackTeamName = nil
+        self.slackWebhookURL = nil
     }
     
     // MARK: - Implementation methods
