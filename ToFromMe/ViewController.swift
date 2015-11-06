@@ -19,6 +19,20 @@ class ViewController: UIViewController, UITextViewDelegate {
         case Channel = "channel"
     }
     
+    enum SlackResponse: String {
+        case Success = "ok"
+        case ChannelNotFound = "channel_not_found"
+        case NotInChannel = "not_in_channel"
+        case ChannelArchived = "is_archived"
+        case BadToken = "Bad token"
+        case NoText = "no_text"
+        case TextTooLong = "msg_too_long"
+        case RateLimited = "rate_limited"
+        case NotAuthed = "not_authed"
+        case InvalidAuth = "invalid_auth"
+        case AccountInactive = "account_inactive"
+    }
+    
     enum Error: Int {
         case ConfigureSlack = 0
         case MissingParameter = 1
@@ -27,6 +41,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         case MissingText = 4
         case OauthError = 5
         case JsonError = 6
+        case SlackError = 7
         
         var message: String {
             switch self {
@@ -44,7 +59,8 @@ class ViewController: UIViewController, UITextViewDelegate {
                 return "We're didn't get permission post on your behalf."
             case .JsonError:
                 return "We're having a hard time sending that. Try changing your text. We suggest you remove any abnormal characters."
-                
+            case .SlackError:
+                return "Slack returned an error saying something is wrong on our side."
             }
         }
         
@@ -378,13 +394,41 @@ class ViewController: UIViewController, UITextViewDelegate {
                 self.activityIndicator.stopAnimating()
                 // look at the response
                 if let httpResponse = response as? NSHTTPURLResponse {
-                    print(httpResponse)
                     if httpResponse.statusCode == 200 {
-                        callback(success: true, error: nil)
+                        // get the response string back which is returned as the body of the response
+                        guard let data = data else {
+                            callback(success: false, error: Error.SlackError.error("We didn't hear anything back from Slack."))
+                            return
+                        }
+                        guard let responseString = NSString(data: data, encoding:NSUTF8StringEncoding) as? String else {
+                            callback(success: false, error: Error.SlackError.error("We didn't understand what we heard back from Slack."))
+                            return
+                        }
+                        // inspect the response
+                        if let res = SlackResponse(rawValue: responseString) {
+                            switch res {
+                            case .Success:
+                                callback(success: true, error: nil)
+                                return
+                            case .ChannelNotFound, .NotInChannel, .ChannelArchived:
+                                Settings.resetSlackSettings()
+                                callback(success: false, error: Error.SlackError.error("Slack is reporting that your channel is not found or that you are no longer a member of the channel. Reconfigure Add to Slack in Settings."))
+                                return
+                            case .NotAuthed, .InvalidAuth, .AccountInactive, .BadToken:
+                                Settings.resetSlackSettings()
+                                callback(success: false, error: Error.SlackError.error("Slack is reporting an authentication error. Go to Settings and reconfigure Add to Slack."))
+                                return
+                            case .NoText, .TextTooLong:
+                                callback(success: false, error: Error.SlackError.error("Slack says your message is too short or (more likely) too long."))
+                                return
+                            case .RateLimited:
+                                callback(success: false, error: Error.SlackError.error("Enhance your chill. Slack is rate limiting us."))
+                                return
+                            }
+                        }
+                        callback(success: false, error: Error.SlackError.error("We didn't understand what we heard back from Slack."))
                         return
                     } else {
-                        print(httpResponse.statusCode)
-                        print(error)
                         callback(success: false, error: Error.HTTPError.error("There was one of those problems the Internet has sometimes with error code \(httpResponse.statusCode)"))
                         return
                     }
