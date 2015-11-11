@@ -16,7 +16,7 @@
 		F02AC6331BEB2C1400317436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02AC6311BEB2C1400317436 /* Main.storyboard */; };
 		F02AC6471BEB497B00317436 /* OauthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6461BEB497B00317436 /* OauthViewController.swift */; };
 		F02F37641BEC1E0B0087F7F5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F37631BEC1E0B0087F7F5 /* Fabric.framework */; };
-		F02F37671BEC23E60087F7F5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F37661BEC23E60087F7F5 /* Crashlytics.framework */; };
+		F02F376F1BED6A780087F7F5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F376E1BED6A780087F7F5 /* Crashlytics.framework */; };
 		F04E905E1BEB57FC0095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E905F1BEB58080095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E90601BEB58080095CC03 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -94,7 +94,7 @@
 		F02AC6321BEB2C1400317436 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F02AC6461BEB497B00317436 /* OauthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthViewController.swift; sourceTree = "<group>"; };
 		F02F37631BEC1E0B0087F7F5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = "OAuthSwift-0.4.6/Fabric.framework"; sourceTree = "<group>"; };
-		F02F37661BEC23E60087F7F5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		F02F376E1BED6A780087F7F5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		F04E904D1BEB57E10095CC03 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-0.4.6/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 		F04E90631BEB66130095CC03 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,7 +106,7 @@
 			files = (
 				F04E905F1BEB58080095CC03 /* OAuthSwift.framework in Frameworks */,
 				F04E905E1BEB57FC0095CC03 /* OAuthSwift.framework in Frameworks */,
-				F02F37671BEC23E60087F7F5 /* Crashlytics.framework in Frameworks */,
+				F02F376F1BED6A780087F7F5 /* Crashlytics.framework in Frameworks */,
 				F02F37641BEC1E0B0087F7F5 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +151,7 @@
 		F02F37651BEC1E1D0087F7F5 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
-				F02F37661BEC23E60087F7F5 /* Crashlytics.framework */,
+				F02F376E1BED6A780087F7F5 /* Crashlytics.framework */,
 				F02F37631BEC1E0B0087F7F5 /* Fabric.framework */,
 				F04E904D1BEB57E10095CC03 /* OAuthSwift.xcodeproj */,
 			);
@@ -430,6 +430,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ToFromMe",
 					"$(PROJECT_DIR)/ToFromMe/OAuthSwift-0.4.6",
+					"$(PROJECT_DIR)/Vendor",
 				);
 				INFOPLIST_FILE = ToFromMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
@@ -453,6 +454,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/ToFromMe",
 					"$(PROJECT_DIR)/ToFromMe/OAuthSwift-0.4.6",
+					"$(PROJECT_DIR)/Vendor",
 				);
 				INFOPLIST_FILE = ToFromMe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;

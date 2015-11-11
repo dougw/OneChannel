@@ -30,9 +30,9 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K0F-cJ-apg">
-                                        <rect key="frame" x="74" y="190" width="225" height="30"/>
+                                        <rect key="frame" x="99.5" y="190" width="174" height="30"/>
                                         <animations/>
-                                        <state key="normal" title="Beta Problems? Praise? @dougw"/>
+                                        <state key="normal" title="from @withcopper to you"/>
                                         <connections>
                                             <action selector="feedbackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yUT-ig-hjq"/>
                                         </connections>

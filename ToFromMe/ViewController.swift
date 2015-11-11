@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         case Username = "username"
         case Icon_Emoji = "icon_emoji"
         case Channel = "channel"
+        case Parse = "parse"
     }
     
     enum SlackResponse: String {
@@ -303,8 +304,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func feedbackButtonPressed(sender: UIButton) {
-        if !UIApplication.sharedApplication().openURL(NSURL(string: "twitter://user?screen_name=dougw")!) {
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.twitter.com/dougw")!)
+        if !UIApplication.sharedApplication().openURL(NSURL(string: "twitter://user?screen_name=withcopper")!) {
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.twitter.com/withcopper")!)
         }
     }
 
@@ -359,6 +360,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         payload[SlackPayloadKey.Token.rawValue] = Settings.slackAccessToken!
         payload[SlackPayloadKey.Icon_Emoji.rawValue] = DefaultIconEmoji
         payload[SlackPayloadKey.Channel.rawValue] = Settings.slackChannel!
+        payload[SlackPayloadKey.Parse.rawValue] = "full"
         return payload
     }
     
