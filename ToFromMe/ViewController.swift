@@ -88,15 +88,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     enum Mode {
         case Main
         case Settings
-        
-        var settingsButtonTitle: String {
-            switch self {
-            case .Main:
-                return "Settings"
-            case .Settings:
-                return "Close"
-            }
-        }
     }
     
     // Main View
@@ -243,7 +234,6 @@ class ViewController: UIViewController, UITextViewDelegate {
                     self.view.layoutIfNeeded()
                 }, completion: nil)
         }
-        settingsButton.setTitle(mode.settingsButtonTitle, forState: .Normal)
     }
     
     func toggleSettingsView() {
