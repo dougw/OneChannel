@@ -19,7 +19,7 @@ import Foundation
 
 import UIKit
 
-class Settings {
+public class Settings {
     
     enum Key: String {
         case SlackAccessToken = "slack_access_token"
@@ -28,7 +28,7 @@ class Settings {
         case SlackWebhookURL = "slack_webhook_url"
     }
     
-    class var slackAccessToken: String? {
+    public class var slackAccessToken: String? {
         get {
             return Settings.getString(.SlackAccessToken)
         } set {
@@ -40,7 +40,7 @@ class Settings {
         }
     }
     
-    class var slackChannel: String? {
+    public class var slackChannel: String? {
         get {
         return Settings.getString(.SlackChannel)
         } set {
@@ -52,7 +52,7 @@ class Settings {
         }
     }
     
-    class var slackTeamName: String? {
+    public class var slackTeamName: String? {
         get {
         return Settings.getString(.SlackTeamName)
         } set {
@@ -65,7 +65,7 @@ class Settings {
     }
     
     
-    class var slackWebhookURL: String? {
+    public class var slackWebhookURL: String? {
         get {
         return Settings.getString(.SlackWebhookURL)
         } set {
@@ -77,11 +77,11 @@ class Settings {
         }
     }
     
-    class var slackIsConfigured: Bool {
+    public class var slackIsConfigured: Bool {
         return slackAccessToken != nil && slackChannel != nil && slackTeamName != nil && slackWebhookURL != nil
     }
     
-    class func resetSlackSettings() {
+    public class func resetSlackSettings() {
         self.slackAccessToken = nil
         self.slackChannel = nil
         self.slackTeamName = nil
@@ -89,25 +89,33 @@ class Settings {
     }
     
     // MARK: - Implementation methods
+    
+    static var defaults: NSUserDefaults {
+        if let d = NSUserDefaults(suiteName: "group.com.withcopper.OneChannel") {
+            return d
+        } else {
+            return NSUserDefaults.standardUserDefaults()
+        }
+    }
 
     class func getBool(key: Key) -> Bool {
-        return NSUserDefaults.standardUserDefaults().boolForKey(key.rawValue)
+        return defaults.boolForKey(key.rawValue)
     }
     
     class func setBool(key: Key, value: Bool) {
-        NSUserDefaults.standardUserDefaults().setBool(value, forKey: key.rawValue)
+       defaults.setBool(value, forKey: key.rawValue)
     }
     
     class func getInt(key: Key) -> Int {
-        return NSUserDefaults.standardUserDefaults().integerForKey(key.rawValue)
+        return defaults.integerForKey(key.rawValue)
     }
     
     class func setInt(key: Key, value: Int) {
-        NSUserDefaults.standardUserDefaults().setInteger(value, forKey: key.rawValue)
+        defaults.setInteger(value, forKey: key.rawValue)
     }
     
     class func deleteInt(key: Key) {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(key.rawValue)
+       defaults.removeObjectForKey(key.rawValue)
     }
     
     // include the user id optionally to create a custom string to by scoped to this userid
@@ -116,7 +124,7 @@ class Settings {
         if userId != nil {
             key += "_\(userId)"
         }
-        return NSUserDefaults.standardUserDefaults().stringForKey(key) as String?
+        return defaults.stringForKey(key) as String?
     }
     
     class func setString(key: Key, value: String, userId: String! = nil) {
@@ -124,7 +132,7 @@ class Settings {
         if userId != nil {
             key += "_\(userId)"
         }
-        NSUserDefaults.standardUserDefaults().setObject(value, forKey: key)
+        defaults.setObject(value, forKey: key)
     }
     
     class func deleteString(key: Key, userId: String! = nil) {
@@ -132,12 +140,12 @@ class Settings {
         if userId != nil {
             key += "_\(userId)"
         }
-        NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
+        defaults.removeObjectForKey(key)
     }
     
-    class func resetSettings(userId: String! = nil) {
-        for key in NSUserDefaults.standardUserDefaults().dictionaryRepresentation().keys {
-            NSUserDefaults.standardUserDefaults().removeObjectForKey(key)
+    public class func resetSettings(userId: String! = nil) {
+        for key in defaults.dictionaryRepresentation().keys {
+            defaults.removeObjectForKey(key)
         }
     }
 }

@@ -40,18 +40,18 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guX-Ff-QOx" userLabel="Add View">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="170"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="OneChannel posts messages to a Slack channel with one tap. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k0O-zc-jjo" userLabel="Instruction Text View">
-                                                <rect key="frame" x="10" y="20" width="354" height="60"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Post to Slack with one tap. " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="k0O-zc-jjo" userLabel="Instruction Text View">
+                                                <rect key="frame" x="10" y="20" width="354" height="35"/>
                                                 <animations/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="PkF-V1-CFW"/>
+                                                    <constraint firstAttribute="height" constant="35" id="PkF-V1-CFW"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfS-G0-2mt">
-                                                <rect key="frame" x="102" y="95" width="170" height="50"/>
+                                                <rect key="frame" x="102" y="70" width="170" height="50"/>
                                                 <animations/>
                                                 <color key="backgroundColor" red="0.11372549019607843" green="0.56862745098039214" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>

@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		F02AC62B1BEB2BB700317436 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6251BEB2BB700317436 /* AppDelegate.swift */; };
 		F02AC62C1BEB2BB700317436 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F02AC6261BEB2BB700317436 /* Assets.xcassets */; };
-		F02AC62D1BEB2BB700317436 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6271BEB2BB700317436 /* Settings.swift */; };
-		F02AC62E1BEB2BB700317436 /* UIColor+OneChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6281BEB2BB700317436 /* UIColor+OneChannel.swift */; };
-		F02AC62F1BEB2BB700317436 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6291BEB2BB700317436 /* Utils.swift */; };
 		F02AC6301BEB2BB700317436 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC62A1BEB2BB700317436 /* ViewController.swift */; };
 		F02AC6331BEB2C1400317436 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02AC6311BEB2C1400317436 /* Main.storyboard */; };
 		F02AC6471BEB497B00317436 /* OauthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6461BEB497B00317436 /* OauthViewController.swift */; };
@@ -21,6 +18,19 @@
 		F04E905F1BEB58080095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E90601BEB58080095CC03 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F04E90641BEB66130095CC03 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04E90631BEB66130095CC03 /* Launch Screen.storyboard */; };
+		F0AE570C1C10B71100AFDD24 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE570B1C10B71100AFDD24 /* ShareViewController.swift */; };
+		F0AE570F1C10B71100AFDD24 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AE570D1C10B71100AFDD24 /* MainInterface.storyboard */; };
+		F0AE57131C10B71100AFDD24 /* LightningPost.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0AE57091C10B71100AFDD24 /* LightningPost.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F0AE57281C10C14A00AFDD24 /* OneChannelKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F0AE57271C10C14A00AFDD24 /* OneChannelKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F0AE572C1C10C14A00AFDD24 /* OneChannelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
+		F0AE572D1C10C14A00AFDD24 /* OneChannelKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F0AE57311C10C16D00AFDD24 /* EnumsAndKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE571E1C10BB9A00AFDD24 /* EnumsAndKeys.swift */; };
+		F0AE57321C10C16D00AFDD24 /* OneChannelPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE571C1C10BA2700AFDD24 /* OneChannelPoster.swift */; };
+		F0AE57331C10C16D00AFDD24 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6271BEB2BB700317436 /* Settings.swift */; };
+		F0AE573D1C10DEDC00AFDD24 /* OneChannelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
+		F0AE573E1C10DF4900AFDD24 /* OneChannelKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
+		F0AE573F1C10E37900AFDD24 /* UIColor+OneChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6281BEB2BB700317436 /* UIColor+OneChannel.swift */; };
+		F0AE57411C10F46200AFDD24 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6291BEB2BB700317436 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +76,20 @@
 			remoteGlobalIDString = F43502791A6791B200038A29;
 			remoteInfo = OAuthSwift;
 		};
+		F0AE57111C10B71100AFDD24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F02AC6081BEB2B6800317436 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0AE57081C10B71100AFDD24;
+			remoteInfo = LightningPost;
+		};
+		F0AE572A1C10C14A00AFDD24 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F02AC6081BEB2B6800317436 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F0AE57241C10C14A00AFDD24;
+			remoteInfo = OneChannelKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,9 +99,21 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				F0AE572D1C10C14A00AFDD24 /* OneChannelKit.framework in Embed Frameworks */,
 				F04E90601BEB58080095CC03 /* OAuthSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE571A1C10B71100AFDD24 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				F0AE57131C10B71100AFDD24 /* LightningPost.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -87,7 +123,7 @@
 		F02AC61F1BEB2B6800317436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F02AC6251BEB2BB700317436 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02AC6261BEB2BB700317436 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F02AC6271BEB2BB700317436 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		F02AC6271BEB2BB700317436 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = ../OneChannel/Settings.swift; sourceTree = "<group>"; };
 		F02AC6281BEB2BB700317436 /* UIColor+OneChannel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+OneChannel.swift"; sourceTree = "<group>"; };
 		F02AC6291BEB2BB700317436 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		F02AC62A1BEB2BB700317436 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +133,17 @@
 		F02F376E1BED6A780087F7F5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		F04E904D1BEB57E10095CC03 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-0.4.6/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 		F04E90631BEB66130095CC03 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		F0AE57091C10B71100AFDD24 /* LightningPost.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LightningPost.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AE570B1C10B71100AFDD24 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		F0AE570E1C10B71100AFDD24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		F0AE57101C10B71100AFDD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0AE571B1C10B74200AFDD24 /* LightningPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LightningPost.entitlements; sourceTree = "<group>"; };
+		F0AE571C1C10BA2700AFDD24 /* OneChannelPoster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OneChannelPoster.swift; path = ../OneChannel/OneChannelPoster.swift; sourceTree = "<group>"; };
+		F0AE571E1C10BB9A00AFDD24 /* EnumsAndKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnumsAndKeys.swift; path = ../OneChannel/EnumsAndKeys.swift; sourceTree = "<group>"; };
+		F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneChannelKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0AE57271C10C14A00AFDD24 /* OneChannelKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneChannelKit.h; sourceTree = "<group>"; };
+		F0AE57291C10C14A00AFDD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0AE57401C10F27B00AFDD24 /* OneChannel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneChannel.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +155,22 @@
 				F04E905E1BEB57FC0095CC03 /* OAuthSwift.framework in Frameworks */,
 				F02F376F1BED6A780087F7F5 /* Crashlytics.framework in Frameworks */,
 				F02F37641BEC1E0B0087F7F5 /* Fabric.framework in Frameworks */,
+				F0AE572C1C10C14A00AFDD24 /* OneChannelKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE57061C10B71100AFDD24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE573D1C10DEDC00AFDD24 /* OneChannelKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE57211C10C14A00AFDD24 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +182,8 @@
 			children = (
 				F02AC6121BEB2B6800317436 /* OneChannel */,
 				F02F37651BEC1E1D0087F7F5 /* Vendor */,
+				F0AE570A1C10B71100AFDD24 /* LightningPost */,
+				F0AE57261C10C14A00AFDD24 /* OneChannelKit */,
 				F02AC6111BEB2B6800317436 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				F02AC6101BEB2B6800317436 /* OneChannel.app */,
+				F0AE57091C10B71100AFDD24 /* LightningPost.appex */,
+				F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,11 +201,11 @@
 		F02AC6121BEB2B6800317436 /* OneChannel */ = {
 			isa = PBXGroup;
 			children = (
+				F0AE57401C10F27B00AFDD24 /* OneChannel.entitlements */,
 				F02AC6311BEB2C1400317436 /* Main.storyboard */,
 				F02AC6251BEB2BB700317436 /* AppDelegate.swift */,
 				F02AC62A1BEB2BB700317436 /* ViewController.swift */,
 				F02AC6461BEB497B00317436 /* OauthViewController.swift */,
-				F02AC6271BEB2BB700317436 /* Settings.swift */,
 				F02AC6281BEB2BB700317436 /* UIColor+OneChannel.swift */,
 				F02AC6291BEB2BB700317436 /* Utils.swift */,
 				F04E90631BEB66130095CC03 /* Launch Screen.storyboard */,
@@ -170,7 +237,41 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		F0AE570A1C10B71100AFDD24 /* LightningPost */ = {
+			isa = PBXGroup;
+			children = (
+				F0AE571B1C10B74200AFDD24 /* LightningPost.entitlements */,
+				F0AE570B1C10B71100AFDD24 /* ShareViewController.swift */,
+				F0AE570D1C10B71100AFDD24 /* MainInterface.storyboard */,
+				F0AE57101C10B71100AFDD24 /* Info.plist */,
+			);
+			path = LightningPost;
+			sourceTree = "<group>";
+		};
+		F0AE57261C10C14A00AFDD24 /* OneChannelKit */ = {
+			isa = PBXGroup;
+			children = (
+				F0AE571E1C10BB9A00AFDD24 /* EnumsAndKeys.swift */,
+				F0AE571C1C10BA2700AFDD24 /* OneChannelPoster.swift */,
+				F02AC6271BEB2BB700317436 /* Settings.swift */,
+				F0AE57271C10C14A00AFDD24 /* OneChannelKit.h */,
+				F0AE57291C10C14A00AFDD24 /* Info.plist */,
+			);
+			path = OneChannelKit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		F0AE57221C10C14A00AFDD24 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE57281C10C14A00AFDD24 /* OneChannelKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		F02AC60F1BEB2B6800317436 /* OneChannel */ = {
@@ -182,17 +283,55 @@
 				F02AC60E1BEB2B6800317436 /* Resources */,
 				F0321D1E1BEB563A0075F9A2 /* Embed Frameworks */,
 				F06BB7851BEC16A200516B73 /* ShellScript */,
+				F0AE571A1C10B71100AFDD24 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				F04E905D1BEB57F10095CC03 /* PBXTargetDependency */,
 				F04E90621BEB58080095CC03 /* PBXTargetDependency */,
+				F0AE57121C10B71100AFDD24 /* PBXTargetDependency */,
+				F0AE572B1C10C14A00AFDD24 /* PBXTargetDependency */,
 			);
 			name = OneChannel;
 			productName = OneChannel;
 			productReference = F02AC6101BEB2B6800317436 /* OneChannel.app */;
 			productType = "com.apple.product-type.application";
+		};
+		F0AE57081C10B71100AFDD24 /* LightningPost */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0AE57191C10B71100AFDD24 /* Build configuration list for PBXNativeTarget "LightningPost" */;
+			buildPhases = (
+				F0AE57051C10B71100AFDD24 /* Sources */,
+				F0AE57061C10B71100AFDD24 /* Frameworks */,
+				F0AE57071C10B71100AFDD24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LightningPost;
+			productName = LightningPost;
+			productReference = F0AE57091C10B71100AFDD24 /* LightningPost.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F0AE57241C10C14A00AFDD24 /* OneChannelKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0AE572E1C10C14B00AFDD24 /* Build configuration list for PBXNativeTarget "OneChannelKit" */;
+			buildPhases = (
+				F0AE57201C10C14A00AFDD24 /* Sources */,
+				F0AE57211C10C14A00AFDD24 /* Frameworks */,
+				F0AE57221C10C14A00AFDD24 /* Headers */,
+				F0AE57231C10C14A00AFDD24 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneChannelKit;
+			productName = OneChannelKit;
+			productReference = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -206,6 +345,24 @@
 				TargetAttributes = {
 					F02AC60F1BEB2B6800317436 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = U8GX79JZMN;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					F0AE57081C10B71100AFDD24 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = U8GX79JZMN;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					F0AE57241C10C14A00AFDD24 = {
+						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = U8GX79JZMN;
 					};
 				};
@@ -230,6 +387,8 @@
 			projectRoot = "";
 			targets = (
 				F02AC60F1BEB2B6800317436 /* OneChannel */,
+				F0AE57081C10B71100AFDD24 /* LightningPost */,
+				F0AE57241C10C14A00AFDD24 /* OneChannelKit */,
 			);
 		};
 /* End PBXProject section */
@@ -276,6 +435,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F0AE57071C10B71100AFDD24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE573E1C10DF4900AFDD24 /* OneChannelKit.framework in Resources */,
+				F0AE570F1C10B71100AFDD24 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE57231C10C14A00AFDD24 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -299,12 +474,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0AE57411C10F46200AFDD24 /* Utils.swift in Sources */,
+				F0AE573F1C10E37900AFDD24 /* UIColor+OneChannel.swift in Sources */,
 				F02AC6301BEB2BB700317436 /* ViewController.swift in Sources */,
-				F02AC62E1BEB2BB700317436 /* UIColor+OneChannel.swift in Sources */,
-				F02AC62D1BEB2BB700317436 /* Settings.swift in Sources */,
 				F02AC62B1BEB2BB700317436 /* AppDelegate.swift in Sources */,
 				F02AC6471BEB497B00317436 /* OauthViewController.swift in Sources */,
-				F02AC62F1BEB2BB700317436 /* Utils.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE57051C10B71100AFDD24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE570C1C10B71100AFDD24 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F0AE57201C10C14A00AFDD24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0AE57311C10C16D00AFDD24 /* EnumsAndKeys.swift in Sources */,
+				F0AE57321C10C16D00AFDD24 /* OneChannelPoster.swift in Sources */,
+				F0AE57331C10C16D00AFDD24 /* Settings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +513,16 @@
 			name = OAuthSwift;
 			targetProxy = F04E90611BEB58080095CC03 /* PBXContainerItemProxy */;
 		};
+		F0AE57121C10B71100AFDD24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0AE57081C10B71100AFDD24 /* LightningPost */;
+			targetProxy = F0AE57111C10B71100AFDD24 /* PBXContainerItemProxy */;
+		};
+		F0AE572B1C10C14A00AFDD24 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F0AE57241C10C14A00AFDD24 /* OneChannelKit */;
+			targetProxy = F0AE572A1C10C14A00AFDD24 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -330,6 +532,14 @@
 				F02AC6321BEB2C1400317436 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F0AE570D1C10B71100AFDD24 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F0AE570E1C10B71100AFDD24 /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -371,7 +581,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -410,7 +620,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -423,6 +633,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OneChannel/OneChannel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -433,11 +644,11 @@
 					"$(PROJECT_DIR)/Vendor",
 				);
 				INFOPLIST_FILE = OneChannel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel;
 				PRODUCT_NAME = OneChannel;
-				PROVISIONING_PROFILE = "80b7fc19-6181-4acb-a798-36ee2f5e7e55";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -447,6 +658,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OneChannel/OneChannel.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -457,11 +669,89 @@
 					"$(PROJECT_DIR)/Vendor",
 				);
 				INFOPLIST_FILE = OneChannel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel;
 				PRODUCT_NAME = OneChannel;
-				PROVISIONING_PROFILE = "80b7fc19-6181-4acb-a798-36ee2f5e7e55";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		F0AE57141C10B71100AFDD24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = LightningPost/LightningPost.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = LightningPost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.LightningPost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F0AE57151C10B71100AFDD24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = LightningPost/LightningPost.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = LightningPost/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.LightningPost;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F0AE572F1C10C14B00AFDD24 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OneChannelKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.igudo.ToFromMe.OneChannelKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F0AE57301C10C14B00AFDD24 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = OneChannelKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.igudo.ToFromMe.OneChannelKit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -485,6 +775,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F0AE57191C10B71100AFDD24 /* Build configuration list for PBXNativeTarget "LightningPost" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0AE57141C10B71100AFDD24 /* Debug */,
+				F0AE57151C10B71100AFDD24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F0AE572E1C10C14B00AFDD24 /* Build configuration list for PBXNativeTarget "OneChannelKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F0AE572F1C10C14B00AFDD24 /* Debug */,
+				F0AE57301C10C14B00AFDD24 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

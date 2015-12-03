@@ -8,80 +8,13 @@
 
 import UIKit
 import OAuthSwift
+import OneChannelKit
 
 class ViewController: UIViewController, UITextViewDelegate {
-    
-    enum SlackPayloadKey: String {
-        case Text = "text"
-        case Token = "token"
-        case Username = "username"
-        case Icon_Emoji = "icon_emoji"
-        case Channel = "channel"
-        case Parse = "parse"
-    }
-    
-    enum SlackResponse: String {
-        case Success = "ok"
-        case ChannelNotFound = "channel_not_found"
-        case NotInChannel = "not_in_channel"
-        case ChannelArchived = "is_archived"
-        case BadToken = "Bad token"
-        case NoText = "no_text"
-        case TextTooLong = "msg_too_long"
-        case RateLimited = "rate_limited"
-        case NotAuthed = "not_authed"
-        case InvalidAuth = "invalid_auth"
-        case AccountInactive = "account_inactive"
-    }
-    
-    enum Error: Int {
-        case ConfigureSlack = 0
-        case MissingParameter = 1
-        case NoResponse = 2
-        case HTTPError = 3
-        case MissingText = 4
-        case OauthError = 5
-        case JsonError = 6
-        case SlackError = 7
-        
-        var message: String {
-            switch self {
-            case .ConfigureSlack:
-                return "Add to Slack in Settings to send. 👊🏽"
-            case .MissingParameter:
-                return "Hrm, something's wrong. We suggest you reconnect your Slack channel in Settings. 🤒"
-            case .NoResponse:
-                return "We didn't hear back from Slack. Oh no, is your Internet down? 🤕"
-            case .HTTPError:
-                return "There was an unexpected Internet HTTP error. 💀"
-            case .MissingText:
-                return "If a tree falls in the woods and no one is around, does it make a sound? And if you don't give us a message to send, can we really send it? 😘"
-            case .OauthError:
-                return "We're didn't get permission post on your behalf. 🤔"
-            case .JsonError:
-                return "We're having a hard time sending that. Try changing your text. We suggest you remove any abnormal characters. 😷"
-            case .SlackError:
-                return "Slack returned an error saying something is wrong on our side. 🐝"
-            }
-        }
-        
-        var domain: String {
-            return "com.igudo.OneChannel"
-        }
-        
-        var error: NSError {
-            return NSError(domain: self.domain, code: self.rawValue, userInfo:["message": self.message])
-        }
-        
-        func error(message: String) -> NSError {
-            return NSError(domain: self.domain, code: self.rawValue, userInfo:["message": message])
-        }
-    }
     
     // MARK: - Constants
     let SlackPostMessageURL:String = "https://slack.com/api/chat.postMessage"
     let DefaultHeaderChannelLabelText = "OneChannel"
-    let DefaultIconEmoji = ":facepunch:"
     let ANIMATION_DURATION:Double = 0.35
     let SPRING_DAMPENING:CGFloat = 0.75
     
@@ -113,10 +46,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var disconnectFromSlackButton: UIButton!
 
     var keyboardRect: CGRect?
-    var session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     var sendViewTap: UIGestureRecognizer!
     var mainViewTap: UIGestureRecognizer!
     var wasPosting: Bool = false
+    let poster = OneChannelPoster()
     
     var mode: Mode = .Main {
         didSet {
@@ -323,115 +256,22 @@ class ViewController: UIViewController, UITextViewDelegate {
         self.textView.text = ""
         self.textViewDidChange(self.textView)
         // send it!
-        postMessage(text, callback: { (success: Bool, error: NSError?) in
+        self.activityIndicator.startAnimating()
+        poster.send(text, callback: { (success: Bool, error: NSError?) in
+            self.activityIndicator.stopAnimating()
             if !success {
                 self.textView.text = text
                 self.textViewDidChange(self.textView)
                 var message = "Error unknown :("
                 if let error = error {
-                    if let localError = ViewController.Error(rawValue: error.code) {
-                        message = localError.message
+                    // if this is one of our errors
+                    if let _ = Error(rawValue: error.code) {
+                        message = error.localizedDescription
                     }
                 }
                 Utils.displayAlert(self, title: "Bummer", message: message)
             }
         })
-    }
-    
-    private func createPayload(text: String) -> [String:String]? {
-        if text.isEmpty {
-            return [String:String]?()
-        }
-        if !Settings.slackIsConfigured {
-            return [String:String]?()
-        }
-        var payload = [String:String]()
-        payload[SlackPayloadKey.Text.rawValue] = text
-        payload[SlackPayloadKey.Token.rawValue] = Settings.slackAccessToken!
-        payload[SlackPayloadKey.Icon_Emoji.rawValue] = DefaultIconEmoji
-        payload[SlackPayloadKey.Channel.rawValue] = Settings.slackChannel!
-        payload[SlackPayloadKey.Parse.rawValue] = "full"
-        return payload
-    }
-    
-    func postMessage(text: String, callback: ((success: Bool, error: NSError?)->())) {
-        self.activityIndicator.startAnimating()
-        guard Settings.slackIsConfigured else {
-            callback(success: false, error: Error.ConfigureSlack.error)
-            return
-        }
-        if text.isEmpty {
-            callback(success: false, error: Error.MissingText.error)
-        }
-        guard let payload = createPayload(text) else {
-            callback(success: false, error: Error.MissingParameter.error)
-            return
-        }
-        
-        // create the request
-        let request = NSMutableURLRequest(URL: NSURL(string: Settings.slackWebhookURL!)!)
-        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-        do {
-            let json = try NSJSONSerialization.dataWithJSONObject(payload, options: NSJSONWritingOptions())
-            request.HTTPBody = json
-        } catch {
-            callback(success: false, error: Error.JsonError.error)
-            return
-        }
-        request.HTTPMethod = "POST"
-        
-        // send the request
-        let task = session.dataTaskWithRequest(request) { data, response, error in
-            dispatch_async(dispatch_get_main_queue(), {
-                self.activityIndicator.stopAnimating()
-                // look at the response
-                if let httpResponse = response as? NSHTTPURLResponse {
-                    if httpResponse.statusCode == 200 {
-                        // get the response string back which is returned as the body of the response
-                        guard let data = data else {
-                            callback(success: false, error: Error.SlackError.error("We didn't hear anything back from Slack."))
-                            return
-                        }
-                        guard let responseString = NSString(data: data, encoding:NSUTF8StringEncoding) as? String else {
-                            callback(success: false, error: Error.SlackError.error("We didn't understand what we heard back from Slack."))
-                            return
-                        }
-                        // inspect the response
-                        if let res = SlackResponse(rawValue: responseString) {
-                            switch res {
-                            case .Success:
-                                callback(success: true, error: nil)
-                                return
-                            case .ChannelNotFound, .NotInChannel, .ChannelArchived:
-                                Settings.resetSlackSettings()
-                                callback(success: false, error: Error.SlackError.error("Slack is reporting that your channel is not found or that you are no longer a member of the channel. Reconfigure Add to Slack in Settings. 🤕"))
-                                return
-                            case .NotAuthed, .InvalidAuth, .AccountInactive, .BadToken:
-                                Settings.resetSlackSettings()
-                                callback(success: false, error: Error.SlackError.error("Slack is reporting an authentication error. Go to Settings and reconfigure Add to Slack. 🤒"))
-                                return
-                            case .NoText, .TextTooLong:
-                                callback(success: false, error: Error.SlackError.error("Slack says your message is too short or (more likely) too long. 🙃"))
-                                return
-                            case .RateLimited:
-                                callback(success: false, error: Error.SlackError.error("Enhance your chill. Slack is rate limiting us. 😕"))
-                                return
-                            }
-                        }
-                        callback(success: false, error: Error.SlackError.error("We didn't understand what we heard back from Slack. 😾"))
-                        return
-                    } else {
-                        callback(success: false, error: Error.HTTPError.error("There was one of those problems the Internet has sometimes with error code \(httpResponse.statusCode) 💀"))
-                        return
-                    }
-                } else {
-                    print(error)
-                    callback(success: false, error: Error.NoResponse.error)
-                    return
-                }
-            })
-        }
-        task.resume()
     }
     
     // MARK: - OAuth

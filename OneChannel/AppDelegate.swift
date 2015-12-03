@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         // look for the url == SlackRedirectURI
-        if (url.scheme == "tofromme29") {
+        if (url.scheme == "onechannel29") {
             if url.host == "slack" {
                 if url.path!.hasPrefix("/callback") {
                     OAuth2Swift.handleOpenURL(url)
@@ -58,9 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-let SlackToken = "3873983481.13930563126"
-let SlackSecret = "57a2b33eee06c88364a00094e4ec45c4"
-let SlackRedirectURI = "tofromme29://slack/callback"
+let SlackToken = "3873983481.15893383671"
+let SlackSecret = "9ee94dbb55810d37eb1405cf3449e314"
+let SlackRedirectURI = "onechannel29://slack/callback"
 let SlackAuthorizeURL = "https://slack.com/oauth/authorize"
 let SlackAccessTokenURL = "https://slack.com/api/oauth.access"
 let SlackScope = "incoming-webhook"

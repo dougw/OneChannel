@@ -4,15 +4,35 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>LightningPost.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>OneChannel.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>OneChannelKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>F02AC60F1BEB2B6800317436</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0AE57081C10B71100AFDD24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0AE57241C10C14A00AFDD24</key>
 		<dict>
 			<key>primary</key>
 			<true/>
