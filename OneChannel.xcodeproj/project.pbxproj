@@ -18,9 +18,15 @@
 		F04E905F1BEB58080095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E90601BEB58080095CC03 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F04E90641BEB66130095CC03 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04E90631BEB66130095CC03 /* Launch Screen.storyboard */; };
-		F0AE570C1C10B71100AFDD24 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE570B1C10B71100AFDD24 /* ShareViewController.swift */; };
-		F0AE570F1C10B71100AFDD24 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0AE570D1C10B71100AFDD24 /* MainInterface.storyboard */; };
-		F0AE57131C10B71100AFDD24 /* LightningPost.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0AE57091C10B71100AFDD24 /* LightningPost.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F06D01821C11620800BD7784 /* ActionRequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06D01811C11620800BD7784 /* ActionRequestHandler.swift */; };
+		F06D01841C11620800BD7784 /* Action.js in Resources */ = {isa = PBXBuildFile; fileRef = F06D01831C11620800BD7784 /* Action.js */; };
+		F06D01881C11620800BD7784 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F06D017F1C11620800BD7784 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F06D018F1C1164C300BD7784 /* OneChannelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
+		F06D01911C11661100BD7784 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06D01901C11661100BD7784 /* ShareViewController.swift */; };
+		F06D01931C11661B00BD7784 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F06D01921C11661B00BD7784 /* Info.plist */; };
+		F06D01951C11662400BD7784 /* ShareExtension.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F06D01941C11662400BD7784 /* ShareExtension.entitlements */; };
+		F06D01991C116FA200BD7784 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F06D01971C116FA200BD7784 /* MainInterface.storyboard */; };
+		F0AE57131C10B71100AFDD24 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0AE57091C10B71100AFDD24 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F0AE57281C10C14A00AFDD24 /* OneChannelKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F0AE57271C10C14A00AFDD24 /* OneChannelKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F0AE572C1C10C14A00AFDD24 /* OneChannelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
 		F0AE572D1C10C14A00AFDD24 /* OneChannelKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -75,6 +81,13 @@
 			remoteGlobalIDString = F43502791A6791B200038A29;
 			remoteInfo = OAuthSwift;
 		};
+		F06D01861C11620800BD7784 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F02AC6081BEB2B6800317436 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F06D017E1C11620800BD7784;
+			remoteInfo = ActionExtension;
+		};
 		F0AE57111C10B71100AFDD24 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F02AC6081BEB2B6800317436 /* Project object */;
@@ -110,7 +123,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				F0AE57131C10B71100AFDD24 /* LightningPost.appex in Embed App Extensions */,
+				F06D01881C11620800BD7784 /* ActionExtension.appex in Embed App Extensions */,
+				F0AE57131C10B71100AFDD24 /* ShareExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -132,11 +146,16 @@
 		F02F376E1BED6A780087F7F5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		F04E904D1BEB57E10095CC03 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-0.4.6/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 		F04E90631BEB66130095CC03 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		F0AE57091C10B71100AFDD24 /* LightningPost.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LightningPost.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0AE570B1C10B71100AFDD24 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		F0AE570E1C10B71100AFDD24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		F0AE57101C10B71100AFDD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F0AE571B1C10B74200AFDD24 /* LightningPost.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LightningPost.entitlements; sourceTree = "<group>"; };
+		F06D017F1C11620800BD7784 /* ActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F06D01811C11620800BD7784 /* ActionRequestHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRequestHandler.swift; sourceTree = "<group>"; };
+		F06D01831C11620800BD7784 /* Action.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Action.js; sourceTree = "<group>"; };
+		F06D01851C11620800BD7784 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F06D01901C11661100BD7784 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareViewController.swift; path = ShareExtension/ShareViewController.swift; sourceTree = SOURCE_ROOT; };
+		F06D01921C11661B00BD7784 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ShareExtension/Info.plist; sourceTree = SOURCE_ROOT; };
+		F06D01941C11662400BD7784 /* ShareExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ShareExtension.entitlements; path = ShareExtension/ShareExtension.entitlements; sourceTree = SOURCE_ROOT; };
+		F06D01981C116FA200BD7784 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ShareExtension/Base.lproj/MainInterface.storyboard; sourceTree = SOURCE_ROOT; };
+		F06D019A1C11880600BD7784 /* ActionExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ActionExtension.entitlements; sourceTree = "<group>"; };
+		F0AE57091C10B71100AFDD24 /* ShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0AE571C1C10BA2700AFDD24 /* OneChannelPoster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OneChannelPoster.swift; path = ../OneChannel/OneChannelPoster.swift; sourceTree = "<group>"; };
 		F0AE571E1C10BB9A00AFDD24 /* EnumsAndKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnumsAndKeys.swift; path = ../OneChannel/EnumsAndKeys.swift; sourceTree = "<group>"; };
 		F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OneChannelKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +174,14 @@
 				F02F376F1BED6A780087F7F5 /* Crashlytics.framework in Frameworks */,
 				F02F37641BEC1E0B0087F7F5 /* Fabric.framework in Frameworks */,
 				F0AE572C1C10C14A00AFDD24 /* OneChannelKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F06D017C1C11620800BD7784 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F06D018F1C1164C300BD7784 /* OneChannelKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,9 +207,10 @@
 			isa = PBXGroup;
 			children = (
 				F02AC6121BEB2B6800317436 /* OneChannel */,
-				F02F37651BEC1E1D0087F7F5 /* Vendor */,
-				F0AE570A1C10B71100AFDD24 /* LightningPost */,
 				F0AE57261C10C14A00AFDD24 /* OneChannelKit */,
+				F0AE570A1C10B71100AFDD24 /* ShareExtension */,
+				F06D01801C11620800BD7784 /* ActionExtension */,
+				F02F37651BEC1E1D0087F7F5 /* Vendor */,
 				F02AC6111BEB2B6800317436 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -191,8 +219,9 @@
 			isa = PBXGroup;
 			children = (
 				F02AC6101BEB2B6800317436 /* OneChannel.app */,
-				F0AE57091C10B71100AFDD24 /* LightningPost.appex */,
+				F0AE57091C10B71100AFDD24 /* ShareExtension.appex */,
 				F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */,
+				F06D017F1C11620800BD7784 /* ActionExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,14 +265,26 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F0AE570A1C10B71100AFDD24 /* LightningPost */ = {
+		F06D01801C11620800BD7784 /* ActionExtension */ = {
 			isa = PBXGroup;
 			children = (
-				F0AE571B1C10B74200AFDD24 /* LightningPost.entitlements */,
-				F0AE570B1C10B71100AFDD24 /* ShareViewController.swift */,
-				F0AE570D1C10B71100AFDD24 /* MainInterface.storyboard */,
-				F0AE57101C10B71100AFDD24 /* Info.plist */,
+				F06D019A1C11880600BD7784 /* ActionExtension.entitlements */,
+				F06D01811C11620800BD7784 /* ActionRequestHandler.swift */,
+				F06D01831C11620800BD7784 /* Action.js */,
+				F06D01851C11620800BD7784 /* Info.plist */,
 			);
+			path = ActionExtension;
+			sourceTree = "<group>";
+		};
+		F0AE570A1C10B71100AFDD24 /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F06D01901C11661100BD7784 /* ShareViewController.swift */,
+				F06D01941C11662400BD7784 /* ShareExtension.entitlements */,
+				F06D01971C116FA200BD7784 /* MainInterface.storyboard */,
+				F06D01921C11661B00BD7784 /* Info.plist */,
+			);
+			name = ShareExtension;
 			path = LightningPost;
 			sourceTree = "<group>";
 		};
@@ -291,15 +332,33 @@
 				F04E90621BEB58080095CC03 /* PBXTargetDependency */,
 				F0AE57121C10B71100AFDD24 /* PBXTargetDependency */,
 				F0AE572B1C10C14A00AFDD24 /* PBXTargetDependency */,
+				F06D01871C11620800BD7784 /* PBXTargetDependency */,
 			);
 			name = OneChannel;
 			productName = OneChannel;
 			productReference = F02AC6101BEB2B6800317436 /* OneChannel.app */;
 			productType = "com.apple.product-type.application";
 		};
-		F0AE57081C10B71100AFDD24 /* LightningPost */ = {
+		F06D017E1C11620800BD7784 /* ActionExtension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F0AE57191C10B71100AFDD24 /* Build configuration list for PBXNativeTarget "LightningPost" */;
+			buildConfigurationList = F06D018E1C11620800BD7784 /* Build configuration list for PBXNativeTarget "ActionExtension" */;
+			buildPhases = (
+				F06D017B1C11620800BD7784 /* Sources */,
+				F06D017C1C11620800BD7784 /* Frameworks */,
+				F06D017D1C11620800BD7784 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ActionExtension;
+			productName = ActionExtension;
+			productReference = F06D017F1C11620800BD7784 /* ActionExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F0AE57081C10B71100AFDD24 /* ShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F0AE57191C10B71100AFDD24 /* Build configuration list for PBXNativeTarget "ShareExtension" */;
 			buildPhases = (
 				F0AE57051C10B71100AFDD24 /* Sources */,
 				F0AE57061C10B71100AFDD24 /* Frameworks */,
@@ -309,9 +368,9 @@
 			);
 			dependencies = (
 			);
-			name = LightningPost;
+			name = ShareExtension;
 			productName = LightningPost;
-			productReference = F0AE57091C10B71100AFDD24 /* LightningPost.appex */;
+			productReference = F0AE57091C10B71100AFDD24 /* ShareExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		F0AE57241C10C14A00AFDD24 /* OneChannelKit */ = {
@@ -344,6 +403,15 @@
 				TargetAttributes = {
 					F02AC60F1BEB2B6800317436 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = U8GX79JZMN;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					F06D017E1C11620800BD7784 = {
+						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = U8GX79JZMN;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
@@ -386,8 +454,9 @@
 			projectRoot = "";
 			targets = (
 				F02AC60F1BEB2B6800317436 /* OneChannel */,
-				F0AE57081C10B71100AFDD24 /* LightningPost */,
+				F0AE57081C10B71100AFDD24 /* ShareExtension */,
 				F0AE57241C10C14A00AFDD24 /* OneChannelKit */,
+				F06D017E1C11620800BD7784 /* ActionExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -434,11 +503,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F06D017D1C11620800BD7784 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F06D01841C11620800BD7784 /* Action.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0AE57071C10B71100AFDD24 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0AE570F1C10B71100AFDD24 /* MainInterface.storyboard in Resources */,
+				F06D01951C11662400BD7784 /* ShareExtension.entitlements in Resources */,
+				F06D01991C116FA200BD7784 /* MainInterface.storyboard in Resources */,
+				F06D01931C11661B00BD7784 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,11 +559,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F06D017B1C11620800BD7784 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F06D01821C11620800BD7784 /* ActionRequestHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F0AE57051C10B71100AFDD24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0AE570C1C10B71100AFDD24 /* ShareViewController.swift in Sources */,
+				F06D01911C11661100BD7784 /* ShareViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,9 +598,14 @@
 			name = OAuthSwift;
 			targetProxy = F04E90611BEB58080095CC03 /* PBXContainerItemProxy */;
 		};
+		F06D01871C11620800BD7784 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F06D017E1C11620800BD7784 /* ActionExtension */;
+			targetProxy = F06D01861C11620800BD7784 /* PBXContainerItemProxy */;
+		};
 		F0AE57121C10B71100AFDD24 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = F0AE57081C10B71100AFDD24 /* LightningPost */;
+			target = F0AE57081C10B71100AFDD24 /* ShareExtension */;
 			targetProxy = F0AE57111C10B71100AFDD24 /* PBXContainerItemProxy */;
 		};
 		F0AE572B1C10C14A00AFDD24 /* PBXTargetDependency */ = {
@@ -532,10 +624,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		F0AE570D1C10B71100AFDD24 /* MainInterface.storyboard */ = {
+		F06D01971C116FA200BD7784 /* MainInterface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F0AE570E1C10B71100AFDD24 /* Base */,
+				F06D01981C116FA200BD7784 /* Base */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -675,17 +767,53 @@
 			};
 			name = Release;
 		};
+		F06D01891C11620800BD7784 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ActionExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.ActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F06D018A1C11620800BD7784 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = ActionExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.ActionExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		F0AE57141C10B71100AFDD24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = LightningPost/LightningPost.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = LightningPost/Info.plist;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.LightningPost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -697,12 +825,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_ENTITLEMENTS = LightningPost/LightningPost.entitlements;
+				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = LightningPost/Info.plist;
+				INFOPLIST_FILE = ShareExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.LightningPost;
+				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.ShareExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -774,13 +902,22 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F0AE57191C10B71100AFDD24 /* Build configuration list for PBXNativeTarget "LightningPost" */ = {
+		F06D018E1C11620800BD7784 /* Build configuration list for PBXNativeTarget "ActionExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F06D01891C11620800BD7784 /* Debug */,
+				F06D018A1C11620800BD7784 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F0AE57191C10B71100AFDD24 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F0AE57141C10B71100AFDD24 /* Debug */,
 				F0AE57151C10B71100AFDD24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0AE572E1C10C14B00AFDD24 /* Build configuration list for PBXNativeTarget "OneChannelKit" */ = {
 			isa = XCConfigurationList;
@@ -789,6 +926,7 @@
 				F0AE57301C10C14B00AFDD24 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

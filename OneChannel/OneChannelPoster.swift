@@ -7,10 +7,92 @@
 //
 
 import Foundation
+import MobileCoreServices
+
+public protocol OneChannelPosterAppExtensionDelegate: class {
+    func postDidFailWithError(error: NSError)
+    func postDidFinish()
+}
 
 public class OneChannelPoster: NSObject {
     
     let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+    var alert: UIAlertController?
+    
+    public var delegate: OneChannelPosterAppExtensionDelegate?
+    
+    let AlertDelayDefault: Double = 5.0 // default number of seconds to allow the alert to display
+
+    public func postWithExtensionContext(extensionContext: NSExtensionContext, contentText: String! = nil) {
+        
+        guard let item = extensionContext.inputItems.first as? NSExtensionItem,
+            let itemProvider = item.attachments?.first as? NSItemProvider else {
+            delegate?.postDidFailWithError(Error.MissingText.error)
+            delegate?.postDidFinish()
+            return
+        }
+        
+        // first we see if this is a URL from an action Extension
+        let propertyList = String(kUTTypePropertyList)
+        let propertyURL = String(kUTTypeURL)
+        let propertyText = String(kUTTypePlainText)
+        
+        // Action extension: URL type
+        if itemProvider.hasItemConformingToTypeIdentifier(propertyList) {
+            itemProvider.loadItemForTypeIdentifier(propertyList, options: nil, completionHandler: { (item, error) -> Void in
+                let dictionary = item as! NSDictionary
+                NSOperationQueue.mainQueue().addOperationWithBlock {
+                    let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
+                    if let urlString = results["currentURL"] as? String,
+                        let url = NSURL(string: urlString) {
+                        let textToPost = self.textToPost(contentText, textFromAttachment: url.absoluteString)
+                        self.post(textToPost, extensionContext: extensionContext)
+                    }
+                }
+            })
+        // Share extension: URL type
+        } else if itemProvider.hasItemConformingToTypeIdentifier(propertyURL) {
+            itemProvider.loadItemForTypeIdentifier(propertyURL, options: nil, completionHandler: { (url, error) -> Void in
+                if let shareURL = url as? NSURL {
+                    let textToPost = self.textToPost(contentText, textFromAttachment: shareURL.absoluteString)
+                    self.post(textToPost, extensionContext: extensionContext)
+                }
+            })
+        // Share extension: Text type
+        } else if itemProvider.hasItemConformingToTypeIdentifier(propertyText) {
+            itemProvider.loadItemForTypeIdentifier(propertyText, options: nil, completionHandler: { (plainText, error) -> Void in
+                if let plainText = plainText as? String {
+                    let textToPost = self.textToPost(contentText, textFromAttachment: plainText)
+                    self.post(textToPost, extensionContext: extensionContext)
+                }
+            })
+        } else if contentText != nil && !contentText.isEmpty {
+            self.post(contentText, extensionContext: extensionContext)
+        } else {
+            delegate?.postDidFailWithError(Error.MissingText.error)
+            delegate?.postDidFinish()
+        }
+
+    }
+    
+    private func textToPost(contentText: String?, textFromAttachment: String! = nil) -> String {
+        if contentText == nil || contentText!.isEmpty {
+            return textFromAttachment!
+        } else {
+            return  "\(contentText!) — \(textFromAttachment!)"
+        }
+    }
+    
+    private func post(text: String, extensionContext: NSExtensionContext) {
+        print("Posting: \(text)")
+        self.send(text, callback: { (success: Bool, error: NSError?) in
+            if error != nil {
+                self.delegate?.postDidFailWithError(error!)
+            } else {
+                self.delegate?.postDidFinish()
+            }
+        })
+    }
     
     public func send(text: String, callback: ((success: Bool, error: NSError?)->())) {
         guard Settings.slackIsConfigured else {
@@ -89,7 +171,17 @@ public class OneChannelPoster: NSObject {
         }
         task.resume()
     }
-    
+        
+    public func displayAlert(viewController: UIViewController, error: NSError, withDelay delay: Double! = nil) {
+        alert = UIAlertController(title: "OneChannel had a problem sending that", message: error.localizedDescription, preferredStyle: UIAlertControllerStyle.Alert)
+        viewController.presentViewController(alert!, animated: true, completion: {
+            // no op
+        })
+        let sleep = delay ?? AlertDelayDefault
+        NSThread.sleepForTimeInterval(sleep)
+        self.alert = nil
+    }
+
     private func createPayload(text: String) -> [String:String]? {
         if text.isEmpty {
             return [String:String]?()
@@ -105,5 +197,4 @@ public class OneChannelPoster: NSObject {
         payload[SlackPayloadKey.Parse.rawValue] = "full"
         return payload
     }
-    
 }
