@@ -28,7 +28,6 @@
 		F0AE57321C10C16D00AFDD24 /* OneChannelPoster.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0AE571C1C10BA2700AFDD24 /* OneChannelPoster.swift */; };
 		F0AE57331C10C16D00AFDD24 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6271BEB2BB700317436 /* Settings.swift */; };
 		F0AE573D1C10DEDC00AFDD24 /* OneChannelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
-		F0AE573E1C10DF4900AFDD24 /* OneChannelKit.framework in Resources */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
 		F0AE573F1C10E37900AFDD24 /* UIColor+OneChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6281BEB2BB700317436 /* UIColor+OneChannel.swift */; };
 		F0AE57411C10F46200AFDD24 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6291BEB2BB700317436 /* Utils.swift */; };
 /* End PBXBuildFile section */
@@ -439,7 +438,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0AE573E1C10DF4900AFDD24 /* OneChannelKit.framework in Resources */,
 				F0AE570F1C10B71100AFDD24 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
