@@ -14,6 +14,7 @@
 		F02AC6471BEB497B00317436 /* OauthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6461BEB497B00317436 /* OauthViewController.swift */; };
 		F02F37641BEC1E0B0087F7F5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F37631BEC1E0B0087F7F5 /* Fabric.framework */; };
 		F02F376F1BED6A780087F7F5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F376E1BED6A780087F7F5 /* Crashlytics.framework */; };
+		F02FFAD41C1206EB006E6B9F /* ActionExtension-Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F02FFAD31C1206EB006E6B9F /* ActionExtension-Assets.xcassets */; };
 		F04E905E1BEB57FC0095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E905F1BEB58080095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E90601BEB58080095CC03 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -144,6 +145,7 @@
 		F02AC6461BEB497B00317436 /* OauthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OauthViewController.swift; sourceTree = "<group>"; };
 		F02F37631BEC1E0B0087F7F5 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = "OAuthSwift-0.4.6/Fabric.framework"; sourceTree = "<group>"; };
 		F02F376E1BED6A780087F7F5 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Crashlytics.framework; path = Vendor/Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		F02FFAD31C1206EB006E6B9F /* ActionExtension-Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "ActionExtension-Assets.xcassets"; sourceTree = "<group>"; };
 		F04E904D1BEB57E10095CC03 /* OAuthSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OAuthSwift.xcodeproj; path = "OAuthSwift-0.4.6/OAuthSwift.xcodeproj"; sourceTree = "<group>"; };
 		F04E90631BEB66130095CC03 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F06D017F1C11620800BD7784 /* ActionExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActionExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +274,7 @@
 				F06D01811C11620800BD7784 /* ActionRequestHandler.swift */,
 				F06D01831C11620800BD7784 /* Action.js */,
 				F06D01851C11620800BD7784 /* Info.plist */,
+				F02FFAD31C1206EB006E6B9F /* ActionExtension-Assets.xcassets */,
 			);
 			path = ActionExtension;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F02FFAD41C1206EB006E6B9F /* ActionExtension-Assets.xcassets in Resources */,
 				F06D01841C11620800BD7784 /* Action.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -770,7 +774,7 @@
 		F06D01891C11620800BD7784 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "ActionExtension-AppIcon-Templated";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -788,7 +792,7 @@
 		F06D018A1C11620800BD7784 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "ActionExtension-AppIcon-Templated";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -909,6 +913,7 @@
 				F06D018A1C11620800BD7784 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F0AE57191C10B71100AFDD24 /* Build configuration list for PBXNativeTarget "ShareExtension" */ = {
 			isa = XCConfigurationList;
