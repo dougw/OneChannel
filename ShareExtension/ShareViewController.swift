@@ -9,6 +9,7 @@
 import UIKit
 import Social
 import OneChannelKit
+import Crashlytics
 
 class ShareViewController: SLComposeServiceViewController {
     
@@ -16,6 +17,8 @@ class ShareViewController: SLComposeServiceViewController {
     var alert: UIAlertController?
     
     override func viewDidLoad() {
+        // log
+        Answers.logCustomEventWithName("Share Extension - Opened", customAttributes: [:])
         poster.delegate = self
     }
 
@@ -35,8 +38,12 @@ class ShareViewController: SLComposeServiceViewController {
 extension ShareViewController: OneChannelPosterAppExtensionDelegate {
     func postDidFailWithError(error: NSError) {
         poster.displayAlert(self, error: error)
+        // log
+        Answers.logCustomEventWithName("Share Extension - Send Failed", customAttributes: ["error":error.localizedDescription])
     }
     func postDidFinish() {
+        // log
+        Answers.logCustomEventWithName("Share Extension - Send Success", customAttributes: [:])
         self.extensionContext?.completeRequestReturningItems([], completionHandler:nil)
     }
 }

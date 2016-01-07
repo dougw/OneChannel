@@ -15,7 +15,6 @@
 		F02F37641BEC1E0B0087F7F5 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F37631BEC1E0B0087F7F5 /* Fabric.framework */; };
 		F02F376F1BED6A780087F7F5 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F376E1BED6A780087F7F5 /* Crashlytics.framework */; };
 		F02FFAD41C1206EB006E6B9F /* ActionExtension-Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F02FFAD31C1206EB006E6B9F /* ActionExtension-Assets.xcassets */; };
-		F04E905E1BEB57FC0095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E905F1BEB58080095CC03 /* OAuthSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; };
 		F04E90601BEB58080095CC03 /* OAuthSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F04E90571BEB57E10095CC03 /* OAuthSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F04E90641BEB66130095CC03 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F04E90631BEB66130095CC03 /* Launch Screen.storyboard */; };
@@ -24,7 +23,6 @@
 		F06D01881C11620800BD7784 /* ActionExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F06D017F1C11620800BD7784 /* ActionExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F06D018F1C1164C300BD7784 /* OneChannelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
 		F06D01911C11661100BD7784 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06D01901C11661100BD7784 /* ShareViewController.swift */; };
-		F06D01931C11661B00BD7784 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F06D01921C11661B00BD7784 /* Info.plist */; };
 		F06D01951C11662400BD7784 /* ShareExtension.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = F06D01941C11662400BD7784 /* ShareExtension.entitlements */; };
 		F06D01991C116FA200BD7784 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F06D01971C116FA200BD7784 /* MainInterface.storyboard */; };
 		F0AE57131C10B71100AFDD24 /* ShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = F0AE57091C10B71100AFDD24 /* ShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -37,6 +35,13 @@
 		F0AE573D1C10DEDC00AFDD24 /* OneChannelKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0AE57251C10C14A00AFDD24 /* OneChannelKit.framework */; };
 		F0AE573F1C10E37900AFDD24 /* UIColor+OneChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6281BEB2BB700317436 /* UIColor+OneChannel.swift */; };
 		F0AE57411C10F46200AFDD24 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02AC6291BEB2BB700317436 /* Utils.swift */; };
+		F0D800831C2B94CE003AEFE0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F376E1BED6A780087F7F5 /* Crashlytics.framework */; };
+		F0D800841C2B94D2003AEFE0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F376E1BED6A780087F7F5 /* Crashlytics.framework */; };
+		F0D800851C2B95C4003AEFE0 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F376E1BED6A780087F7F5 /* Crashlytics.framework */; };
+		F0D800861C2C5E40003AEFE0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F37631BEC1E0B0087F7F5 /* Fabric.framework */; };
+		F0D800871C2C5E70003AEFE0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F37631BEC1E0B0087F7F5 /* Fabric.framework */; };
+		F0D800881C2C5E78003AEFE0 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F02F37631BEC1E0B0087F7F5 /* Fabric.framework */; };
+		F0DAF15F1C3E4A9A0083964B /* release.md in Sources */ = {isa = PBXBuildFile; fileRef = F0DAF15E1C3E4A9A0083964B /* release.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +169,7 @@
 		F0AE57271C10C14A00AFDD24 /* OneChannelKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneChannelKit.h; sourceTree = "<group>"; };
 		F0AE57291C10C14A00AFDD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0AE57401C10F27B00AFDD24 /* OneChannel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = OneChannel.entitlements; sourceTree = "<group>"; };
+		F0DAF15E1C3E4A9A0083964B /* release.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = release.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +178,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F04E905F1BEB58080095CC03 /* OAuthSwift.framework in Frameworks */,
-				F04E905E1BEB57FC0095CC03 /* OAuthSwift.framework in Frameworks */,
 				F02F376F1BED6A780087F7F5 /* Crashlytics.framework in Frameworks */,
 				F02F37641BEC1E0B0087F7F5 /* Fabric.framework in Frameworks */,
 				F0AE572C1C10C14A00AFDD24 /* OneChannelKit.framework in Frameworks */,
@@ -183,7 +188,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D800841C2B94D2003AEFE0 /* Crashlytics.framework in Frameworks */,
 				F06D018F1C1164C300BD7784 /* OneChannelKit.framework in Frameworks */,
+				F0D800881C2C5E78003AEFE0 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,6 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0AE573D1C10DEDC00AFDD24 /* OneChannelKit.framework in Frameworks */,
+				F0D800831C2B94CE003AEFE0 /* Crashlytics.framework in Frameworks */,
+				F0D800871C2C5E70003AEFE0 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +208,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0D800851C2B95C4003AEFE0 /* Crashlytics.framework in Frameworks */,
+				F0D800861C2C5E40003AEFE0 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +252,7 @@
 				F04E90631BEB66130095CC03 /* Launch Screen.storyboard */,
 				F02AC6261BEB2BB700317436 /* Assets.xcassets */,
 				F02AC61F1BEB2B6800317436 /* Info.plist */,
+				F0DAF15E1C3E4A9A0083964B /* release.md */,
 			);
 			path = OneChannel;
 			sourceTree = "<group>";
@@ -521,7 +533,6 @@
 			files = (
 				F06D01951C11662400BD7784 /* ShareExtension.entitlements in Resources */,
 				F06D01991C116FA200BD7784 /* MainInterface.storyboard in Resources */,
-				F06D01931C11661B00BD7784 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +570,7 @@
 				F0AE573F1C10E37900AFDD24 /* UIColor+OneChannel.swift in Sources */,
 				F02AC6301BEB2BB700317436 /* ViewController.swift in Sources */,
 				F02AC62B1BEB2BB700317436 /* AppDelegate.swift in Sources */,
+				F0DAF15F1C3E4A9A0083964B /* release.md in Sources */,
 				F02AC6471BEB497B00317436 /* OauthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,7 +670,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -779,6 +791,11 @@
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+					"$(PROJECT_DIR)/OneChannel/OAuthSwift-0.4.6",
+				);
 				INFOPLIST_FILE = ActionExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -797,6 +814,11 @@
 				CODE_SIGN_ENTITLEMENTS = ActionExtension/ActionExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+					"$(PROJECT_DIR)/OneChannel/OAuthSwift-0.4.6",
+				);
 				INFOPLIST_FILE = ActionExtension/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
@@ -815,6 +837,11 @@
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+					"$(PROJECT_DIR)/OneChannel/OAuthSwift-0.4.6",
+				);
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.ShareExtension;
@@ -832,6 +859,11 @@
 				CODE_SIGN_ENTITLEMENTS = ShareExtension/ShareExtension.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+					"$(PROJECT_DIR)/OneChannel/OAuthSwift-0.4.6",
+				);
 				INFOPLIST_FILE = ShareExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.withcopper.OneChannel.ShareExtension;
@@ -844,6 +876,7 @@
 		F0AE572F1C10C14B00AFDD24 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
 				CURRENT_PROJECT_VERSION = 1;
@@ -851,6 +884,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+					"$(PROJECT_DIR)/OneChannel/OAuthSwift-0.4.6",
+				);
 				INFOPLIST_FILE = OneChannelKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -866,6 +904,7 @@
 		F0AE57301C10C14B00AFDD24 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Copper Technologies, Inc. (U8GX79JZMN)";
 				CURRENT_PROJECT_VERSION = 1;
@@ -873,6 +912,11 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor",
+					"$(PROJECT_DIR)/OneChannel/OAuthSwift-0.4.6",
+				);
 				INFOPLIST_FILE = OneChannelKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

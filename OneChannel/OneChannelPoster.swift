@@ -32,7 +32,7 @@ public class OneChannelPoster: NSObject {
             return
         }
         
-        // first we see if this is a URL from an action Extension
+        // first we see if this is a URL from an Action Extension
         let propertyList = String(kUTTypePropertyList)
         let propertyURL = String(kUTTypeURL)
         let propertyText = String(kUTTypePlainText)
@@ -43,10 +43,22 @@ public class OneChannelPoster: NSObject {
                 let dictionary = item as! NSDictionary
                 NSOperationQueue.mainQueue().addOperationWithBlock {
                     let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as! NSDictionary
-                    if let urlString = results["currentURL"] as? String,
+                    if let urlString = results[ActionExtensionKeys.PageURL.rawValue] as? String,
                         let url = NSURL(string: urlString) {
-                        let textToPost = self.textToPost(contentText, textFromAttachment: url.absoluteString)
-                        self.post(textToPost, extensionContext: extensionContext)
+                            // we ignore contentText with action extensions and build the string ourselves
+                            // based on the javascript action
+                            // first, add the page title if it exists
+                            var text = results[ActionExtensionKeys.PageTitle.rawValue] as? String
+                            // next, add a quote/selected text if any is found
+                            if let selectedText = results[ActionExtensionKeys.SelectedText.rawValue] as? String where selectedText != "" {
+                                if text == nil {
+                                    text = "\"\(selectedText)\""
+                                } else {
+                                    text = "\(text!)\n\"\(selectedText)\""
+                                }
+                            }
+                            let textToPost = self.textToPost(text, textFromAttachment: url.absoluteString)
+                            self.post(textToPost, extensionContext: extensionContext)
                     }
                 }
             })
@@ -79,7 +91,7 @@ public class OneChannelPoster: NSObject {
         if contentText == nil || contentText!.isEmpty {
             return textFromAttachment!
         } else {
-            return  "\(contentText!) — \(textFromAttachment!)"
+            return  "\(contentText!)\n\(textFromAttachment!)"
         }
     }
     

@@ -33,6 +33,13 @@ enum SlackResponse: String {
     case AccountInactive = "account_inactive"
 }
 
+public enum ActionExtensionKeys: String {
+    case PageURL = "pageURL"
+    case PageTitle = "pageTitle"
+    case SelectedText = "selectedText"
+    case PageSource = "pageSource"
+}
+
 public enum Error: Int {
     case ConfigureSlack = 0
     case MissingParameter = 1

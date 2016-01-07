@@ -9,6 +9,7 @@
 import UIKit
 import OAuthSwift
 import OneChannelKit
+import Crashlytics
 
 class ViewController: UIViewController, UITextViewDelegate {
     
@@ -103,6 +104,9 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        // log
+        Answers.logCustomEventWithName("App Opened", customAttributes: [:])
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillAppear:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         // set off the chain to hide the send button, set the first responder, and update the constraints
@@ -251,6 +255,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     func send() {
+        // log
+        Answers.logCustomEventWithName("Send Started", customAttributes: [:])
         // clear the text to indicate progress
         let text = textView.text
         self.textView.text = ""
@@ -269,7 +275,11 @@ class ViewController: UIViewController, UITextViewDelegate {
                         message = error.localizedDescription
                     }
                 }
+                // log
+                Answers.logCustomEventWithName("Send Failed", customAttributes: ["error":message])
                 Utils.displayAlert(self, title: "Bummer", message: message)
+            } else {
+                Answers.logCustomEventWithName("Send Success", customAttributes: [:])
             }
         })
     }
@@ -277,6 +287,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     // MARK: - OAuth
     
     func handleAddToSlack(sending: Bool = false) {
+        // log
+        Answers.logCustomEventWithName("Add to Slack Started", customAttributes: [:])
         self.activityIndicator.startAnimating()
         addToSlackButton.enabled = false
         let oauthswift = OAuth2Swift(
@@ -305,12 +317,15 @@ class ViewController: UIViewController, UITextViewDelegate {
                 // .Main resets wasPosting
                 self.mode = .Main
                 self.addToSlackButton.enabled = true
+                // log
+                Answers.logCustomEventWithName("Add to Slack Success", customAttributes: [:])
             }, failure: { (error: NSError) in
                 self.activityIndicator.stopAnimating()
                 Settings.resetSettings()
                 self.addToSlackButton.enabled = true
                 Utils.displayAlert(self, title: "We weren't able to Add OneChannel to Slack 😢")
-                print(error)
+                // log
+                Answers.logCustomEventWithName("Add to Slack Failure", customAttributes: ["error":error.localizedDescription])
             }
         )
     }

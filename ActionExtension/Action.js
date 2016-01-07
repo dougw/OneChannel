@@ -11,7 +11,7 @@ var Action = function() {};
 Action.prototype = {
     
     run: function(arguments) {
-        arguments.completionFunction({ "currentURL" : document.URL });
+        arguments.completionFunction({"pageURL": document.URL, "pageSource": document.documentElement.outerHTML, "pageTitle": document.title, "selectedText": window.getSelection().toString()});
     }
 
 };

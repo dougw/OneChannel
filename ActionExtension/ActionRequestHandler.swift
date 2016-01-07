@@ -9,6 +9,7 @@
 import UIKit
 import MobileCoreServices
 import OneChannelKit
+import Crashlytics
 
 class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
@@ -16,6 +17,8 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
     let poster = OneChannelPoster()
     
     func beginRequestWithExtensionContext(context: NSExtensionContext) {
+        // log
+        Answers.logCustomEventWithName("Action Extension - Opened", customAttributes: [:])
         self.extensionContext = context
         self.poster.delegate = self
         poster.postWithExtensionContext(context)
@@ -24,11 +27,13 @@ class ActionRequestHandler: NSObject, NSExtensionRequestHandling {
 
 extension ActionRequestHandler: OneChannelPosterAppExtensionDelegate {
     func postDidFailWithError(error: NSError) {
+        Answers.logCustomEventWithName("Action Extension - Send Failed", customAttributes: ["error":error.localizedDescription])
         // ignore the error for now
         print("ActionRequestHandler had trouble posting an item: error \(error)")
         postDidFinish()
     }
     func postDidFinish() {
+        Answers.logCustomEventWithName("Action Extension - Send Success", customAttributes: [:])
         self.extensionContext?.completeRequestReturningItems([], completionHandler:nil)
         self.extensionContext = nil
     }
